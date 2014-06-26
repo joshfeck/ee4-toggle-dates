@@ -63,14 +63,3 @@ function td_toggle_extra_datetimes() {
 		<?php
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
