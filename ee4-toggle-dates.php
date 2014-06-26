@@ -42,22 +42,28 @@ function td_toggle_extra_datetimes() {
 		?>
 		<script type="text/javascript">
 		jQuery(document).ready(function($){
-				
 			$( 'ul[id^="ee-event-datetimes-ul-"]' ).each(function(){
 				var n = $( this ).find( 'li' ).length;
-				var theButton = '<ul style="list-style-type:none;"><li style="list-style-type:none;"><button class="toggle-button">More Dates</button></li></ul>';
+				var b = '<ul style="list-style-type:none;">';
+				b += '<li style="list-style-type:none;">';
+				b += '<button class="toggle-button">More Dates</button>';
+				b += '</li></ul>';
 				if ( n > 1 ) {
-    				$( this ).find( 'li:gt(0)').hide();
-    				$( this ).after( theButton );
+    				$( this ).find( 'li:gt(0)' ).hide();
+    				$( this ).after( b );
     			}
 			});
-	
 		    $( '.toggle-button' ).click(function() {
-				var txt = $(' ul[id^="ee-event-datetimes-ul-"] li:not(:first-child)' ).is( ':visible' ) ? 'More Dates' : 'Less Dates';
+				var txt = $( 'ul[id^="ee-event-datetimes-ul-"] li:not(:first-child)' ).is( ':visible' ) ?
+				'More Dates' :
+				'Less Dates';
 				$( this ).text( txt );
-				$( this ).parents( 'div.event-datetimes' ).children( '.ee-event-datetimes-ul' ).find( 'li:not(:first-child)' ).slideToggle( 'slow' );
+				$( this )
+					.parents( 'div.event-datetimes' )
+					.children( '.ee-event-datetimes-ul' )
+					.find( 'li:not(:first-child)' )
+					.slideToggle( 'slow' );
 			});
-				
 		});
 		</script>
 		<?php
